@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <script src="./assets/js/style.js"></script> -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 </head>
 <body>
 
@@ -33,31 +35,76 @@
             <p class="library-search-choose"><a href="#">History <i class="bi bi-caret-down"></i></a></p>
         </div>
         <div class="library-playlist">
-            <div class="library-playlist-item">
+            <div class="library-playlist-item" style="--i:1">
                 <div class="library-playlist-img">
-                    <img src="https://bazaarvietnam.vn/wp-content/uploads/2023/03/Album-moi-cua-MCK.jpg" alt="">
+                    <img src="assets/img/album99.jfif" alt="">
                 </div>
                 <div class="library-playlist-title">
                     <p>99%</p>
                     <p>Album <i class="bi bi-dot"></i> RPT MCK</p>
                 </div>
             </div>
-            <div class="library-playlist-item">
+            <div class="library-playlist-item" style="--i:2">
                 <div class="library-playlist-img">
-                    <img src="https://th.bing.com/th/id/OIP.UBqhpqjlir31QrU-_TVQ-AHaHa?pid=ImgDet&rs=1" alt="">
+                    <img src="assets/img/album HT2.jfif" alt="">
                 </div>
                 <div class="library-playlist-title">
                     <p>Khong The Say</p>
                     <p>Album <i class="bi bi-dot"></i> Hieu Thu Hai</p>
                 </div>
             </div>
-            <div class="library-playlist-item">
+            <div class="library-playlist-item" style="--i:3">
                 <div class="library-playlist-img">
-                    <img src="https://th.bing.com/th/id/OIP.j0pdexRBLE8fieI-x3ZmsAAAAA?pid=ImgDet&rs=1" alt="">
+                    <img src="assets/img/link.jfif" alt="">
                 </div>
                 <div class="library-playlist-title">
                     <p>LINK</p>
                     <p>Album <i class="bi bi-dot"></i> Hoang Thuy Linh</p>
+                </div>
+            </div>
+            <div class="library-playlist-item" style="--i:4">
+                <div class="library-playlist-img">
+                    <img src="assets/img/phao.webp" alt="">
+                </div>
+                <div class="library-playlist-title">
+                    <p>Phao</p>
+                    <p>Nghệ sĩ</p>
+                </div>
+            </div>
+            <div class="library-playlist-item" style="--i:5">
+                <div class="library-playlist-img">
+                    <img src="assets/img/mono.jfif" alt="">
+                </div>
+                <div class="library-playlist-title">
+                    <p>Mono</p>
+                    <p>Nghệ sĩ</p>
+                </div>
+            </div>
+            <div class="library-playlist-item" style="--i:6">
+                <div class="library-playlist-img">
+                    <img src="assets/img/son tung.jfif" alt="">
+                </div>
+                <div class="library-playlist-title">
+                    <p>Sơn Tùng MTP</p>
+                    <p>Nghệ sĩ</p>
+                </div>
+            </div>
+            <div class="library-playlist-item" style="--i:7">
+                <div class="library-playlist-img">
+                    <img src="assets/img/moi ra lo.jfif" alt="">
+                </div>
+                <div class="library-playlist-title">
+                    <p>Mới Ra Lò</p>
+                    <p>Danh Sách Phát <i class="bi bi-dot"></i> 30 bài hát</p>
+                </div>
+            </div>
+            <div class="library-playlist-item" style="--i:1">
+                <div class="library-playlist-img">
+                    <img src="assets/img/love.png" alt="">
+                </div>
+                <div class="library-playlist-title">
+                    <p>Bài hát đã thích</p>
+                    <p>Danh Sách Phát <i class="bi bi-dot"></i> 75 bài hát</p>
                 </div>
             </div>
         </div>
@@ -80,15 +127,84 @@
             <ul class="song-control-list">
                 <li class="song-control-item"><i class="bi bi-shuffle"></i></li>
                 <li class="song-control-item"><i class="bi bi-skip-start"></i></li>
-                <li class="song-control-item"><i class="bi bi-pause"></i></li>
+                <li class="song-control-item" onclick="playMusic()"><i class="bi bi-play"></i></li>
+            
+                <audio id="audio-player">
+                    <source src="NeuLucDo-tlinh2pillz-8783613.mp3" type="audio/mp3">
+                </audio>
+            
                 <li class="song-control-item"><i class="bi bi-skip-end"></i></li>
                 <li class="song-control-item"><i class="bi bi-repeat"></i></li>
-                <!-- <li class="song-control-item"><i class="bi bi-repeat-1"></i></li> -->
             </ul>
+          
             <div class="range">
-                <input type="range" class="range-item" value="0">
+                <div id="music-duration">00:00</div>
+              <input type="range" class="range-item" id="music-range" value="0" step="1" min="0">
+              <div id="music-duration-end">00:00</div>
             </div>
-        </div>
+          </div>
+
+<script>
+    var audioPlayer = document.getElementById('audio-player');
+    var audioPlayer = document.getElementById('audio-player');
+    var musicRange = document.getElementById('music-range');
+    var musicDuration = document.getElementById('music-duration');
+    var musicDurationEnd = document.getElementById('music-duration-end');
+
+audioPlayer.addEventListener('loadedmetadata', function() {
+  var totalDuration = audioPlayer.duration;
+  var formattedDuration = formatTime(totalDuration);
+  musicDurationEnd.textContent = formattedDuration;
+});
+
+audioPlayer.addEventListener('loadedmetadata', function() {
+    var totalDuration = audioPlayer.duration;
+    var minutes = Math.floor(totalDuration / 60);
+    var seconds = Math.floor(totalDuration % 60);
+    var formattedDuration = padZero(minutes) + ':' + padZero(seconds);
+    musicDuration.textContent = formattedDuration;
+});
+
+musicRange.addEventListener('input', function() {
+    var selectedTime = (musicRange.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = selectedTime;
+});
+
+audioPlayer.addEventListener('timeupdate', function() {
+    var currentTime = audioPlayer.currentTime;
+    var minutes = Math.floor(currentTime / 60);
+    var seconds = Math.floor(currentTime % 60);
+    var formattedTime = padZero(minutes) + ':' + padZero(seconds);
+    musicRange.value = (currentTime / audioPlayer.duration) * 100;
+    musicDuration.textContent = formattedTime;
+});
+
+function formatTime(duration) {
+  var minutes = Math.floor(duration / 60);
+  var seconds = Math.floor(duration % 60);
+
+  var formattedTime = '';
+  formattedTime += (minutes < 10 ? '0' : '') + minutes + ':';
+  formattedTime += (seconds < 10 ? '0' : '') + seconds;
+
+  return formattedTime;
+}
+function padZero(number) {
+  return number.toString().padStart(2, '0');
+}
+function playMusic() {
+    if (audioPlayer.paused) {
+    audioPlayer.play();
+    document.querySelector('.bi-play').classList.add('bi-pause');
+    document.querySelector('.bi-play').classList.remove('bi-play');
+    } else {
+    audioPlayer.pause();
+    document.querySelector('.bi-pause').classList.add('bi-play');
+    document.querySelector('.bi-pause').classList.remove('bi-pause');
+    }
+}
+</script>
+
         <div class="song-option">
             <ul class="song-option-list">
                 <li class="song-option-item"><i class="bi bi-link-45deg"></i></li>
@@ -99,6 +215,306 @@
             </ul>
         </div>
     </footer>
+
+    <section>
+        <header>
+            <div class="logo">
+                <h2 class="text">TMusic</h2>
+                <p class="shape"><i class="bi bi-triangle"></i></p>
+            </div>
+            <div class="hyper-link">
+                <ul class="hyper-link-list">
+                    <li class="hyper-link-item">Thanh Toàn</i></li>
+                    <li class="hyper-link-item"><i class="bi bi-person-circle"></i></li>
+                    <li class="hyper-link-item"><i class="bi bi-cloud"></i></li>
+                    <li class="hyper-link-item"><i class="bi bi-brightness-high"></i></li>
+                    <li class="hyper-link-item"><i class="bi bi-gear"></i></li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-title">
+                <p class="multiText"></p>
+            </div>
+            
+            <script>
+                var typedEffect = new Typed(".multiText", {
+                    strings : ["Say Hello", "Chill Tý Nhạc Nhé", "Khò Khò", "Cà Nhính Cà Nhính"],
+                    loop : true,
+                    typeSpeed : 80,
+                    backSpeed : 50,
+                    backDelay : 10000
+                })
+            </script>
+
+            <div class="main-list">
+                <div class="main-item">
+                    <img src="assets/img/hot hit vn.jfif" alt="">
+                    <span>Hot Hits Vietnam</span>
+                </div>
+                <div class="main-item">
+                    <img src="assets/img/thien ha nghe gi.jfif" alt="">
+                    <span>Thiên Hạ Nghe Gì</span>
+                </div>
+                <div class="main-item">
+                    <img src="assets/img/equal VN.jfif" alt="">
+                    <span>Equal Vietnam</span>
+                </div>
+                <div class="main-item">
+                    <img src="assets/img/mega hit mix.jfif" alt="">
+                    <span>Mega Hit Mix</span>
+                </div>
+                <div class="main-item">
+                    <img src="assets/img/tieng hat at tieng ca.jfif" alt="">
+                    <span>Tiếng Hát Át Tiếng Ca</span>
+                </div>
+                <div class="main-item">
+                    <img src="assets/img/viralHits.jfif" alt="">
+                    <span>Viral Hits</span>
+                </div>
+            </div>
+  
+            <div class="for-you reveal">
+                <div class="for-you-title title-general">
+                    <h2>Dành cho bạn</h2>
+                </div>
+                <div class="for-you-list">
+                    <div class="for-you-item" style="--i:1">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:2">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:3">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:4">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:5">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="for-you reveal">
+                <div class="for-you-title title-general">
+                    <h2>Dành cho bạn</h2>
+                </div>
+                <div class="for-you-list">
+                    <div class="for-you-item" style="--i:1">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:2">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:3">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:4">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:5">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="for-you reveal">
+                <div class="for-you-title title-general">
+                    <h2>Dành cho bạn</h2>
+                </div>
+                <div class="for-you-list">
+                    <div class="for-you-item" style="--i:1">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:2">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:3">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:4">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:5">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="for-you reveal">
+                <div class="for-you-title title-general">
+                    <h2>Dành cho bạn</h2>
+                </div>
+                <div class="for-you-list">
+                    <div class="for-you-item" style="--i:1">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:2">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:3">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:4">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:5">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="for-you reveal">
+                <div class="for-you-title title-general">
+                    <h2>Dành cho bạn</h2>
+                </div>
+                <div class="for-you-list">
+                    <div class="for-you-item" style="--i:1">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:2">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:3">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:4">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+                    <div class="for-you-item" style="--i:5">
+                        <img src="assets/img/daily mix 1.jfif" alt="">
+                        <div class="for-you-item-title">
+                            <p class="for-you-item-title-main">Daily Mix 1</p>
+                            <p class="for-you-item-title-sub">Hoàng Thùy Linh, Thịnh Suy, Đức Phúc và nhiều hơn nữa</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="null"></div>
+            </div>
+
+        </main>
+
+    </section>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+        
+        function reveal() {
+          var reveals = document.querySelectorAll('.reveal');
+        
+          for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var revealTop = reveals[i].getBoundingClientRect().top;
+            var revealPoint = 150;
+        
+            if (revealTop < windowHeight - revealPoint) {
+              reveals[i].classList.add('active');
+            } else {
+              reveals[i].classList.remove('active');
+            }
+          }
+        }
+    </script>
 
 </body>
 </html>

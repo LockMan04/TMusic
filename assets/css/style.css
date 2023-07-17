@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
 
 body {
-    /* background-color: var(--black-color); */
-    background-color: wheat;
+    background-color: var(--black-color);
+    /* background-color: wheat; */
 }
 
 /* HOME */
@@ -39,7 +39,7 @@ aside {
     background-color: var(--bg-color);
     position: fixed;
     top: 115px;
-    height: 400px;
+    height: 100vh;
     width: 240px;
     border-radius: 5px;
 }
@@ -120,6 +120,7 @@ aside {
     position: absolute;
     top: 120px;
     overflow-y: scroll;
+    height: 400px;
 }
 
 ::-webkit-scrollbar {
@@ -127,7 +128,7 @@ aside {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Màu của phần thumb */
+    background-color: var(--black-color); /* Màu của phần thumb */
     border-radius: 4px; /* Đặt độ cong cho phần thumb */
 }
 
@@ -141,6 +142,19 @@ aside {
     box-sizing: border-box;
     border-radius: 5px;
     transition: .5s ease;
+    opacity: 0;
+    animation: upper .8s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+@keyframes upper {
+    from {
+        transform: translateY(40px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .library-playlist-img img {
@@ -181,11 +195,11 @@ footer {
     bottom: 0;
     left: 0;
     background-color: var(--black-color);
+    z-index: 1;
 }
 
 .song-playing-item {
     border-radius: 5px;
-    /* background-color: var(--bg-color); */
     display: flex;
     flex-direction: row;
     height: 70px;
@@ -242,7 +256,6 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
     height: auto;
     width: 40%;
 }
@@ -261,6 +274,19 @@ footer {
     font-size: 2rem;
     color: var(--white-color);
     cursor: pointer;
+}
+
+#music-duration {
+    position: absolute;
+    left: -40px;
+    font-size: 1.4rem;
+}
+
+#music-duration-end {
+    position: absolute;
+    right: -40px;
+    top: 0px;
+    font-size: 1.4rem;
 }
 
 .range {
@@ -283,7 +309,6 @@ footer {
 .song-option {
     height: auto;
     width: 20%;
-    /* background-color: cadetblue; */
 }
 
 .song-option-list {
@@ -295,12 +320,222 @@ footer {
 }
 
 .song-option-item {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     cursor: pointer;
     color: var(--white-color);
 }
 
-.song-option-item:hover {
-    text-shadow: 0 0 15px 0 white;
+section {
+    position: fixed;
+    max-width: 82%;
+    height: 50px;
+    top: 5px;
+    left: 250px;
+    /* padding-right: 5px; */
+    background-color: black;
+    border-radius: 5px;
 }
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo h2 {
+    font-size: 2.4rem;
+    color: var(--white-color);
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.logo p {
+    font-size: 5rem;
+    color: goldenrod;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -55px;
+    left: 55px;
+    z-index: -1;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.hyper-link {
+    min-width: 40%;
+}
+
+.hyper-link-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.hyper-link-item {
+    color: var(--white-color);
+    font-size: 1.8rem;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.logo:hover .shape {
+    transform: rotate(-50deg);
+}
+
+.hyper-link-item:hover {
+    text-shadow: 0 0 10px white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--black-color);
+    border-radius: 5px;
+    z-index: 0;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.multiText {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin: 20px;
+    color: var(--white-color);
+    height: 16px;
+}
+
+.main-item {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    min-width: 320px;
+    flex: 1;
+    background-color: #2a2a2d;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.main-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+}
+
+.main-item {
+    margin: 10px 10px;
+    transition: .5s ease;
+}
+
+.main-item:hover {
+    background-color: #404346;
+}
+
+.main-item img {
+    height: 75px;
+    width: 75px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.main-item span {
+    font-size: 2.4rem;
+    color: var(--white-color);
+    line-height: 26px;
+    text-align: center;
+    padding: 0 10px;
+    align-self: center;
+}
+
+/* MAINNNNNNNNNNNNNN */
+.title-general {
+    font-size: 1.8rem;
+    color: var(--white-color);
+    margin-left: 20px;
+    transition: .5s linear;
+}
+
+.title-general:hover {
+    text-decoration: underline;
+}
+
+.for-you {
+    height: 50vh;
+}
+
+
+.for-you-item {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 18%;
+    min-width: 200px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    opacity: 0;
+    animation: toLeft .8s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+@keyframes toLeft {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.for-you-item img {
+    height: 175px;
+    width: 175px;
+    margin: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.for-you-item-title {
+    color: var(--white-color);
+    line-height: 10px;
+    margin: 0 20px;
+    overflow: auto;
+}
+
+.for-you-item-title-main {
+    font-size: 1.4rem;
+}
+
+.for-you-item-title-sub {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 15px;
+    color: var(--text-color);
+}
+
+.for-you-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+
+.null {
+    display: block;
+    height: 130px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+  }
   
