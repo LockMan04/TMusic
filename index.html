@@ -14,8 +14,8 @@
 
     <!-- HOME -->
     <div class="home">
-        <p><i class="bi bi-house"></i> Home</p>
-        <p><i class="bi bi-search"></i> Search</p>
+        <p id="home" class="text-underline"><i class="bi bi-house"> </i>Home</p>
+        <p id="search"><i class="bi bi-search"> </i>Search</p>
     </div>
 
     <!-- ASIDE -->
@@ -111,10 +111,7 @@
         </div>
     </aside>
 
-    <!-- FOOTER -->
-    
-
-    <section>
+    <section id="home-hiden">
         <header>
             <div class="logo">
                 <h2 class="text">TMusic</h2>
@@ -249,14 +246,137 @@
             </div>
             <div class="null"></div>
         </main>
-
-
-        <!-- Search Input -->
-        <nav id="search-window">
-            <input type="text" class="search-input">
-            <span class="search-text"><i class="bi bi-search"></i> Tìm Kiếm</span>
-        </nav>
     </section>
+
+    <div class="search-window hiden" id="search-hiden">
+        <div class="heading">
+            <header class="header">
+                <div class="logo">
+                    <h2 class="text">TMusic</h2>
+                    <p class="shape"><i class="bi bi-triangle"></i></p>
+                </div>
+                <div class="hyper-link">
+                    <ul class="hyper-link-list">
+                        <li class="hyper-link-item">Thanh Toàn</i></li>
+                        <li class="hyper-link-item"><i class="bi bi-person-circle"></i></li>
+                        <li class="hyper-link-item"><i class="bi bi-cloud"></i></li>
+                        <li class="hyper-link-item"><i class="bi bi-brightness-high"></i></li>
+                        <li class="hyper-link-item"><i class="bi bi-gear"></i></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="search-input">
+                <label for="search">
+                    <input type="text" id="search-input" placeholder="Search..." autofocus>
+                    <p class="search-input-icon"><i class="bi bi-search"></i></p>
+                </label>
+            </div>
+        </div>
+        <div class="recommend">
+            <div class="recommend-text">
+                Recommend
+            </div>
+            <div class="recommend-list">
+                <div class="recommend-item" style="--i:1">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:2">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:3">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:4">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:5">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:6">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:7">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:8">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:9">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:10">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:11">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+                <div class="recommend-item" style="--i:12">
+                    <div class="recommend-item-text">
+                        PodCasts
+                    </div>
+                    <div class="recommend-item-img">
+                        <img src="assets/img/podcasts.jfif" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="null"></div>
+        </div>
+    </div>
 
 <footer>
     <div class="song-playing">
@@ -301,7 +421,6 @@
     </div>
 </footer>
 
-<div class=""></div>
 
 </body>
     <script src="./assets/js/app.js"></script>

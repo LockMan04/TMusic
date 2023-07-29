@@ -104,22 +104,21 @@ function reveal() {
 }
 
 // Đóng mở Home / Tìm Kiếm
-// JavaScript
-const homeButton = document.querySelector('.bi-house');
-const searchButton = document.querySelector('.bi-search');
-const search = document.getElementById('search-window');
-const home = document.getElementById('home');
+const homeButton = document.getElementById('home');
+const searchButton = document.getElementById('search');
+const HomeHiden = document.getElementById('home-hiden');
+const searchHiden = document.getElementById('search-hiden');
+// const textUnderline = document.getElementById('text-underline');
 
-// Thêm sự kiện "click" vào nút mở cửa sổ tìm kiếm
 searchButton.addEventListener('click', function() {
-  // Hiển thị cửa sổ tìm kiếm khi click vào nút mở cửa sổ
-  search.style.display = 'inline-block';
-  home.style.display = 'none';
+  HomeHiden.classList.add('hiden');
+  searchButton.classList.add('text-underline');
+  homeButton.classList.remove('text-underline');
+  searchHiden.classList.remove('hiden');
 });
-
-// Thêm sự kiện "click" vào nút trang chủ
 homeButton.addEventListener('click', function() {
-  // Ẩn cửa sổ tìm kiếm khi click vào nút trang chủ
-  search.style.display = 'none';
-  home.style.display = 'block';
-});
+  HomeHiden.classList.remove('hiden');
+  searchHiden.classList.add('hiden');
+  searchButton.classList.remove('text-underline');
+  homeButton.classList.add('text-underline');
+})
