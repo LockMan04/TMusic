@@ -72,6 +72,8 @@ function formatTime(duration) {
 function padZero(number) {
   return number.toString().padStart(2, '0');
 }
+
+// Nút Play Music
 function playMusic() {
     if (audioPlayer.paused) {
     audioPlayer.play();
@@ -84,31 +86,12 @@ function playMusic() {
     }
 }
 
-// Animations
-window.addEventListener('scroll', reveal);
-        
-function reveal() {
-  var reveals = document.querySelectorAll('.reveal');
-
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var revealTop = reveals[i].getBoundingClientRect().top;
-    var revealPoint = 150;
-
-    if (revealTop < windowHeight - revealPoint) {
-      reveals[i].classList.add('active');
-    } else {
-      reveals[i].classList.remove('active');
-    }
-  }
-}
-
 // Đóng mở Home / Tìm Kiếm
 const homeButton = document.getElementById('home');
 const searchButton = document.getElementById('search');
 const HomeHiden = document.getElementById('home-hiden');
 const searchHiden = document.getElementById('search-hiden');
-// const textUnderline = document.getElementById('text-underline');
+const inforHiden = document.getElementById('infor-hiden');
 
 searchButton.addEventListener('click', function() {
   HomeHiden.classList.add('hiden');

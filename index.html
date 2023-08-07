@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TMusic</title>
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
@@ -12,13 +13,13 @@
 </head>
 <body>
 
-    <!-- HOME -->
+    <!-- HOME/SEARCH BUTTON -->
     <div class="home">
         <p id="home" class="text-underline"><i class="bi bi-house"> </i>Home</p>
         <p id="search"><i class="bi bi-search"> </i>Search</p>
     </div>
 
-    <!-- ASIDE -->
+    <!-- ASIDE / Thư Viện -->
     <aside>
         <div class="library">
             <p><a href="#"><i class="bi bi-music-note-list"></i> Library</a></p>
@@ -111,6 +112,7 @@
         </div>
     </aside>
 
+    <!-- Home Window -->
     <section id="home-hiden">
         <header>
             <div class="logo">
@@ -248,6 +250,7 @@
         </main>
     </section>
 
+    <!-- Search Window -->
     <div class="search-window hiden" id="search-hiden">
         <div class="heading">
             <header class="header">
@@ -378,48 +381,49 @@
         </div>
     </div>
 
-<footer>
-    <div class="song-playing">
-        <div class="song-playing-item">
-            <div class="song-playing-img">
-                <img src="https://images.genius.com/06c47f4418e71b8050848069e9a75880.1000x1000x1.jpg" alt="">
-            </div>
-            <div class="song-playing-title">
-                <p class="song-playing-title-namesong">nếu lúc đó</p>
-                <p class="song-playing-title-namesinger"><span class="name-singer">tlinh</span>, <span class="name-ft">2pillz</span></p>
+    <!-- Trình Điều Khiển -->
+    <footer>
+        <div class="song-playing">
+            <div class="song-playing-item">
+                <div class="song-playing-img">
+                    <img src="https://images.genius.com/06c47f4418e71b8050848069e9a75880.1000x1000x1.jpg" alt="">
+                </div>
+                <div class="song-playing-title">
+                    <p class="song-playing-title-namesong">nếu lúc đó</p>
+                    <p class="song-playing-title-namesinger"><span class="name-singer">tlinh</span>, <span class="name-ft">2pillz</span></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="song-control">
-        <ul class="song-control-list">
-            <li class="song-control-item"><i class="bi bi-shuffle"></i></li>
-            <li class="song-control-item"><i class="bi bi-skip-start"></i></li>
-            <li class="song-control-item" onclick="playMusic()"><i class="bi bi-play"></i></li>
+        <div class="song-control">
+            <ul class="song-control-list">
+                <li class="song-control-item"><i class="bi bi-shuffle"></i></li>
+                <li class="song-control-item"><i class="bi bi-skip-start"></i></li>
+                <li class="song-control-item" onclick="playMusic()"><i class="bi bi-play"></i></li>
+            
+                <audio id="audio-player">
+                    <source src="NeuLucDo-tlinh2pillz-8783613.mp3" type="audio/mp3">
+                </audio>
+            
+                <li class="song-control-item"><i class="bi bi-skip-end"></i></li>
+                <li class="song-control-item"><i class="bi bi-repeat"></i></li>
+            </ul>
         
-            <audio id="audio-player">
-                <source src="NeuLucDo-tlinh2pillz-8783613.mp3" type="audio/mp3">
-            </audio>
-        
-            <li class="song-control-item"><i class="bi bi-skip-end"></i></li>
-            <li class="song-control-item"><i class="bi bi-repeat"></i></li>
-        </ul>
-      
-        <div class="range">
-            <div id="music-duration">00:00</div>
-          <input type="range" class="range-item" id="music-range" value="0" step="1" min="0">
-          <div id="music-duration-end">00:00</div>
+            <div class="range">
+                <div id="music-duration">00:00</div>
+            <input type="range" class="range-item" id="music-range" value="0" step="1" min="0">
+            <div id="music-duration-end">00:00</div>
+            </div>
         </div>
-      </div>
-    <div class="song-option">
-        <ul class="song-option-list">
-            <li class="song-option-item"><i class="bi bi-link-45deg"></i></li>
-            <li class="song-option-item"><i class="bi bi-headset"></i></li>
-            <li class="song-option-item"><i class="bi bi-list"></i></li>
-            <li class="song-option-item"><i class="bi bi-volume-up-fill"></i></li>
-            <li class="song-option-item"><i class="bi bi-arrows-angle-expand"></i></li>
-        </ul>
-    </div>
-</footer>
+        <div class="song-option">
+            <ul class="song-option-list">
+                <li class="song-option-item"><i class="bi bi-link-45deg"></i></li>
+                <li class="song-option-item"><i class="bi bi-headset"></i></li>
+                <li class="song-option-item"><i class="bi bi-list"></i></li>
+                <li class="song-option-item"><i class="bi bi-volume-up-fill"></i></li>
+                <li class="song-option-item"><i class="bi bi-arrows-angle-expand"></i></li>
+            </ul>
+        </div>
+    </footer>
 
 
 </body>

@@ -561,9 +561,9 @@ main {
 }
  
 .home > .text-underline {
-    text-decoration: underline;
     color: var(--white-color);
     font-weight: 900;
+    text-shadow: 0 0 10px white;
 }
 
 /* SEARCHHHHHHHHHHHHHHHHHHHHHHHHHH */
@@ -572,30 +572,29 @@ main {
     position: fixed;
     height: 100px;
     width: 80%;
-    right: 5px;
+    right: 0;
     top: 0;
     z-index: 2;
 }
 
 .header {
-    position: fixed;
     display: flex;
-    width: 80%;
+    width: 100%;
     background-color: var(--bg-color);
-    right: 5px;
+    right: 0;
     top: 5px;
     border-radius: 5px;
     z-index: 2;
 }
 
 .search-input {
-    position: fixed;
+    margin-top: 10px;
     right: 5px;
     top: 70px;
     border-radius: 5px;
     background-color: #fff;
     height: 50px;
-    width: 80%;
+    width: 100%;
     z-index: 2;
 }
 
@@ -634,14 +633,34 @@ main {
 }
 
 .recommend-list {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     row-gap: 30px;
     justify-content: space-between;
-    margin: 0 20px;
+    margin: 0 20px; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
 }
+
+@media screen and (max-width: 1200px){
+    .recommend-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 800px){
+    .recommend-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/* @media screen and (max-width: 1200px){
+    .recommend-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+} */
 
 .recommend-text {
     font-size: 2.4rem;
