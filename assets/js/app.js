@@ -73,6 +73,7 @@ function padZero(number) {
   return number.toString().padStart(2, '0');
 }
 
+// Trình Phát Nhạc
 // Nút Play Music
 function playMusic() {
     if (audioPlayer.paused) {
@@ -85,6 +86,11 @@ function playMusic() {
     document.querySelector('.bi-pause').classList.remove('bi-pause');
     }
 }
+// Nút Next, Back
+function nextSong() {
+  
+}
+
 
 // Đóng mở Home / Tìm Kiếm
 const homeButton = document.getElementById('home');

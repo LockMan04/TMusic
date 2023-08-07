@@ -8,7 +8,6 @@
 }
 
 * {
-
     box-sizing: inherit;
     /* Không cho chọn */
     -webkit-touch-callout: none; /* Safari */
@@ -16,7 +15,7 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE/Edge */
     user-select: none;
-    color: #fff;
+    /* color: #fff; */
 }
 
 html, body {
