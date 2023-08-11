@@ -119,7 +119,7 @@ aside {
     position: absolute;
     top: 120px;
     overflow-y: scroll;
-    height: 50vh;
+    height: calc(100vh - 300px);
 }
 
 .search-area {
@@ -174,6 +174,10 @@ aside {
 }
 
 .library-playlist-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
+    white-space: nowrap;
     line-height: 10px;
     color: var(--white-color);
 }
@@ -311,6 +315,7 @@ footer {
     width: 100%;
     position: relative;
     top: -5px;
+    cursor: pointer;
 }
 
 .song-option {
@@ -400,6 +405,11 @@ header {
     transition: 1s ease;
 }
 
+.hyper-link-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo:hover .shape {
     transform: rotate(-50deg);
 }
@@ -416,7 +426,7 @@ main {
     border-radius: 5px;
     z-index: 0;
     overflow-y: scroll;
-    height: 79vh;
+    height: calc(100vh - 136px);
 }
 
 .multiText {
@@ -446,7 +456,6 @@ main {
     flex-wrap: wrap;
     margin-left: 10px;
     justify-content: space-evenly;
-    overflow-y: scroll;
 }
 
 .main-item {
@@ -477,7 +486,7 @@ main {
 
 .play-button {
     position: absolute;
-    background-color: #1fdf64;
+    background-color: var(--green-color);
     height: 45px;
     width: 45px;
     padding: 2px 0 0 4px;
@@ -681,27 +690,12 @@ main {
 }
 
 .recommend-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 40px;
 }
-
-@media screen and (max-width: 1200px){
-    .recommend-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media screen and (max-width: 800px){
-    .recommend-list {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-/* @media screen and (max-width: 1200px){
-    .recommend-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
-} */
 
 .recommend-text {
     font-size: 2.4rem;

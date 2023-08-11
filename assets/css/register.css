@@ -1,0 +1,327 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--white-color);
+    /* background-image: url('https://th.bing.com/th/id/R.cfecc143b914f4d5232b983009703edc?rik=SnyTYJN83wVmkQ&pid=ImgRaw&r=0'); */
+    overflow: hidden;
+}
+
+input {
+    border: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    height: 28px;
+    color: var(--black-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+::placeholder {
+    color: var(--black-color);
+}
+
+#name, #email, #password {
+    width: 100%;
+}
+
+.birthday-option {
+    display: flex;
+    gap: 5px;
+}
+
+.birthday-option input:first-child {
+    flex-basis: calc((100%/2) - 10px);
+}
+.birthday-option input:last-child {
+    flex-basis: calc((100%/2) - 10px);
+}
+
+select {
+    border: 1px solid #ccc;
+    background-color: transparent;
+    height: 28px;
+    color: var(--black-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    border-radius: 5px;
+    outline: none;
+}
+
+option {
+    background-color: var(--black-color);
+}
+
+/* .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+    width: 80%;
+    height: max-content;
+} */
+
+.container-register {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+    width: 80%;
+    height: max-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-radius: 10px;
+    align-items: center;
+    overflow: hidden;
+    transform: translateX(10p);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.register {
+    flex: 0.5;
+}
+
+.sign-up h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.name p, .birthday p, .email p, .password p, .sex p{
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 0;
+    color: var(--black-color);
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sex-option {
+    font-size: 1.4rem;
+    color: var(--black-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.4rem;
+    color: var(--black-color);
+    gap: 10px;
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.termsOfUse, .privacyPolicy {
+    text-align: center;
+    font-size: .8rem;
+    color: var(--black-color);
+}
+
+.termsOfUse a, .privacyPolicy a {
+    color: var(--green-color);
+}
+
+.register-btn {
+    background-color: var(--green-color);
+    padding: 3px 14px;
+    box-sizing: unset;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    transition: .1s ease;
+}
+
+.register-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+.circle1 {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, #49C5F6, #FF2AEF);
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    z-index: -1;
+    animation: change 8s ease-in-out infinite alternate;
+}
+
+.circle2 {
+    height: 133px;
+    width: 133px;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #5ecde1, #2caee2);
+    position: absolute;
+    bottom: 20px;
+    right: 60px;
+    z-index: -1;
+    animation: change 4s ease-in-out infinite alternate;
+}
+
+.circle3 {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-image: linear-gradient(140deg, #F4A261, #FFC52D);
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+    z-index: 0;
+    animation: change 4s ease-in-out -4s infinite alternate;
+}
+
+@keyframes change {
+    to {
+        transform: translateY(20px);
+    }
+}
+
+.login-by-link-container {
+    align-content: center;
+    position: relative;
+    left: 50%;
+}
+
+.login-by-link h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.login-other {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    gap: 20px;
+}
+
+.login-other > div {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 12px;
+    border: 1px solid #e2dfdf;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    transition: 1s ease-in-out forwards;
+    text-align: center;
+}
+
+.login-other > div:hover {
+    border: 1px solid #2c2c2c;
+}
+
+.login-by-link-container h3 {
+    font-size: 1.8rem;
+}
+
+.login-by-link-container h3 > a {
+    color: var(--green-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.container-login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.container-login h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.container-login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-login > form input {
+    width: 320px;
+}
+
+.name-login, .pw-login {
+    position: relative;
+    margin-top: 19px;
+}
+
+.name-login p, .pw-login p {
+    position: absolute;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: var(--white-color);
+    top: -24px;
+    left: 18px;
+    padding: 0 5px;
+}
+
+#remember-me{
+    width: 20px;
+    height: unset;
+    cursor: pointer;
+}   
+
+.remember-me {
+    font-size: 1.5rem;
+    padding: 5px 0;
+    width: fit-content;
+}
+
+.login-submit{
+    margin: 8px 0;
+    background-color: var(--green-color);
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 100;
+    height: 32px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.forget {
+    font-size: 1.2rem;
+    color: var(--black-color);
+    margin: 10px 0;
+}
+
+.forget:hover, .not-account a:hover {
+    color: var(--green-color);
+}
+
+.not-account {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 1.8rem;
+}
+
